@@ -1,0 +1,109 @@
+type CollectionDeployed @entity {
+	id: ID!
+	contract: Bytes!
+	owner: Bytes!
+	root: Bytes!
+	name: String!
+	symbol: String!
+	implementation: Bytes!
+	admin: Bytes!
+	salt: Bytes!
+	type: String!
+	factory: Bytes!
+	payToken: Bytes!
+	price: BigInt!
+	open: BigInt!
+	close: BigInt!
+	uri: String!
+	timestamp: BigInt!
+	txHash: Bytes!
+}
+
+type Collection @entity {
+	id: ID!
+	contract: Bytes!
+	owner: Bytes!
+	root: Bytes!
+	name: String!
+	symbol: String!
+	implementation: Bytes!
+	admin: Bytes!
+	salt: Bytes!
+	type: String!
+	factory: Bytes!
+	payToken: Bytes!
+	price: BigInt!
+	open: BigInt!
+	close: BigInt!
+	uri: String!
+}
+
+type Token @entity {
+	id: ID!
+	contract: Bytes!
+	owner: Bytes!
+	amount: BigInt!
+	tokenId: BigInt!
+}
+
+type Transfer @entity {
+	id: ID!
+	contract: Bytes!
+	from: Bytes!
+	to: Bytes!
+	tokenId: BigInt!
+	amount: BigInt!
+	timestamp: BigInt!
+	txHash: Bytes!
+}
+
+type Payment @entity {
+	id: ID!
+	contract: Bytes!
+	token: Bytes!
+	from: Bytes!
+	to: Bytes!
+	tokenId: BigInt!
+	amount: BigInt!
+	value: BigInt!
+	timestamp: BigInt!
+	txHash: Bytes!
+}
+
+type OwnershipTransfer @entity {
+	id: ID!
+	contract: Bytes!
+	from: Bytes!
+	to: Bytes!
+	timestamp: BigInt!
+	txHash: Bytes!
+}
+
+type Withdrawal @entity {
+	id: ID!
+	contract: Bytes!
+	token: Bytes!
+	to: Bytes!
+	value: BigInt!
+	timestamp: BigInt!
+	txHash: Bytes!
+}
+
+type Box @entity {
+	id: ID!
+	contract: Bytes!
+	tokenId: BigInt
+	supply: BigInt
+	creator: Bytes
+	uri: String
+	root: Bytes
+	proofs: [Bytes!]
+	type: String!
+	status: String!
+}
+
+type MerkleRoot @entity {
+	id: ID!
+	contract: Bytes!
+	root: Bytes
+}
