@@ -1,0 +1,7 @@
+{
+	"network": "mumbai",
+	"startBlock": 25144627,
+	"ERC721SingleCollectionFactoryAddress": "0xD456604cC5D3b7994bFDbE8879371C1a7aEF4072",
+	"ERC721MultipleCollectionFactoryAddress": "0xd21BAA82784D83Ac35b1e8315Ec52e228CCD3f88",
+	"ERC1155SingleCollectionFactoryAddress": "0x5078446e9F5D4d76184fe68dCE4F57C586802e22"
+}

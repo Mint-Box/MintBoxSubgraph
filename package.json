@@ -2,12 +2,17 @@
   "name": "MintBoxSubgraph",
   "license": "UNLICENSED",
   "scripts": {
-    "codegen": "graph codegen --output-dir src/types/",
+	"codegen": "graph codegen --output-dir src/types/",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ mintboxsubgraph",
-    "create-local": "graph create --node http://localhost:8020/ mintboxsubgraph",
-    "remove-local": "graph remove --node http://localhost:8020/ mintboxsubgraph",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 mintboxsubgraph"
+	"prepare:rinkeby": "mustache config/rinkeby.json subgraph.template.yaml > subgraph.yaml",
+	"prepare:mumbai": "mustache config/mumbai.json subgraph.template.yaml > subgraph.yaml",
+	"deploy:rinkeby": "yarn prepare:rinkeby && yarn rinkeby",
+	"deploy:mumbai": "yarn prepare:mumbai && yarn mumbai",
+    "mumbai": "graph deploy --node https://api.thegraph.com/deploy/ dinn2018/mints-on-mumbai",
+	"rinkeby": "graph deploy --node https://api.thegraph.com/deploy/ dinn2018/mints-on-rinkeby",
+    "create-local": "graph create --node http://localhost:8020/ dinn2018/Mints",
+    "remove-local": "graph remove --node http://localhost:8020/ dinn2018/Mints",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 dinn2018/Mints"
   },
   "devDependencies": {
 	"@graphprotocol/graph-cli": "0.25.2",
@@ -17,6 +22,7 @@
     "eslint": "^8.7.0",
     "eslint-config-prettier": "^8.3.0",
     "prettier": "^2.5.1",
-    "typescript": "^4.5.4"
+    "typescript": "^4.5.4",
+	"mustache": "^3.1.0"
   }
 }

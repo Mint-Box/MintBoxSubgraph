@@ -5,11 +5,11 @@ schema:
 dataSources:
   - kind: ethereum
     name: ERC721SingleCollectionFactory
-    network: rinkeby
+    network: {{network}}
     source:
-      address: "0xD456604cC5D3b7994bFDbE8879371C1a7aEF4072"
+      address: '{{ERC721SingleCollectionFactoryAddress}}'
       abi: ERC721SingleCollectionFactory
-      startBlock: 10175624
+      startBlock: {{startBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -25,11 +25,11 @@ dataSources:
       file: ./src/ERC721SingleCollectionFactory.ts
   - kind: ethereum
     name: ERC721MultipleCollectionFactory
-    network: rinkeby
+    network: {{network}}
     source:
-      address: "0xd21BAA82784D83Ac35b1e8315Ec52e228CCD3f88"
+      address: '{{ERC721MultipleCollectionFactoryAddress}}'
       abi: ERC721MultipleCollectionFactory
-      startBlock: 10175624
+      startBlock: {{startBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -45,11 +45,11 @@ dataSources:
       file: ./src/ERC721MultipleCollectionFactory.ts
   - kind: ethereum
     name: ERC1155SingleCollectionFactory
-    network: rinkeby
+    network: {{network}}
     source:
-      address: "0x5078446e9F5D4d76184fe68dCE4F57C586802e22"
+      address: '{{ERC1155SingleCollectionFactoryAddress}}'
       abi: ERC1155SingleCollectionFactory
-      startBlock: 10175624
+      startBlock: {{startBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -65,10 +65,10 @@ dataSources:
       file: ./src/ERC1155SingleCollectionFactory.ts
   - kind: ethereum
     name: ERC721SingleCollectionUpgradeable
-    network: rinkeby
+    network: {{network}}
     source:
       abi: ERC721SingleCollectionUpgradeable
-      startBlock: 10175624
+      startBlock: {{startBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -108,10 +108,10 @@ dataSources:
           handler: handleWithdrawal
   - kind: ethereum
     name: ERC721MultiCollectionUpgradeable
-    network: rinkeby
+    network: {{network}}
     source:
       abi: ERC721MultiCollectionUpgradeable
-      startBlock: 10175624
+      startBlock: {{startBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -151,10 +151,10 @@ dataSources:
           handler: handleWithdrawal
   - kind: ethereum
     name: ERC1155SingleCollectionUpgradeable
-    network: rinkeby
+    network: {{network}}
     source:
       abi: ERC1155SingleCollectionUpgradeable
-      startBlock: 10175624
+      startBlock: {{startBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
@@ -196,10 +196,10 @@ dataSources:
           handler: handleWithdrawal
   - kind: ethereum
     name: CollectionProxy
-    network: rinkeby
+    network: {{network}}
     source:
       abi: CollectionProxy
-      startBlock: 10175624
+      startBlock: {{startBlock}}
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.6
