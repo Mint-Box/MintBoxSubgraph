@@ -6,10 +6,13 @@
     "build": "graph build",
 	"prepare:rinkeby": "mustache config/rinkeby.json subgraph.template.yaml > subgraph.yaml",
 	"prepare:mumbai": "mustache config/mumbai.json subgraph.template.yaml > subgraph.yaml",
+	"prepare:chapel": "mustache config/chapel.json subgraph.template.yaml > subgraph.yaml",
 	"deploy:rinkeby": "yarn prepare:rinkeby && yarn rinkeby",
 	"deploy:mumbai": "yarn prepare:mumbai && yarn mumbai",
+	"deploy:chapel": "yarn prepare:chapel && yarn chapel",
     "mumbai": "graph deploy --node https://api.thegraph.com/deploy/ dinn2018/mints-on-mumbai",
 	"rinkeby": "graph deploy --node https://api.thegraph.com/deploy/ dinn2018/mints-on-rinkeby",
+	"chapel": "graph deploy --node https://api.thegraph.com/deploy/ dinn2018/mints-on-chapel",
     "create-local": "graph create --node http://localhost:8020/ dinn2018/Mints",
     "remove-local": "graph remove --node http://localhost:8020/ dinn2018/Mints",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 dinn2018/Mints"
