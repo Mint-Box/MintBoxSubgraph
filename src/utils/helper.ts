@@ -13,8 +13,8 @@ export function saveCollectionDeployed(
 	name: string,
 	symbol: string,
 	implementation: Address,
-	admin: Address,
 	salt: Bytes,
+	pool: Address,
 	type: string,
 	factory: Bytes,
 	payToken: Bytes,
@@ -33,7 +33,7 @@ export function saveCollectionDeployed(
 		entity.name = name
 		entity.symbol = symbol
 		entity.implementation = implementation
-		entity.admin = admin
+		entity.pool = pool
 		entity.salt = salt
 		entity.root = root
 		entity.type = type
@@ -56,8 +56,8 @@ export function saveCollection(
 	name: string,
 	symbol: string,
 	implementation: Address,
-	admin: Address,
 	salt: Bytes,
+	pool: Address,
 	type: string,
 	factory: Bytes,
 	payToken: Bytes,
@@ -74,7 +74,7 @@ export function saveCollection(
 		entity.name = name
 		entity.symbol = symbol
 		entity.implementation = implementation
-		entity.admin = admin
+		entity.pool = pool
 		entity.salt = salt
 		entity.root = root
 		entity.type = type
@@ -319,24 +319,6 @@ export function handleMultipleMintTokenInBox(
 		box.status = 'Minted'
 		box.save()
 	}
-}
-
-export function handleCollectionAdminChanged(contract: Address, admin: Address): void {
-	let entity = Collection.load(contract.toHex())
-	if (!entity) {
-		return
-	}
-	entity.admin = admin
-	entity.save()
-}
-
-export function handleCollectionUpgraded(contract: Address, implementation: Address): void {
-	let entity = Collection.load(contract.toHex())
-	if (!entity) {
-		return
-	}
-	entity.implementation = implementation
-	entity.save()
 }
 
 export function saveCollectionOpen(contract: Address, time: BigInt): void {

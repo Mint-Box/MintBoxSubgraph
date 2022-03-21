@@ -6,7 +6,7 @@ type CollectionDeployed @entity {
 	name: String!
 	symbol: String!
 	implementation: Bytes!
-	admin: Bytes!
+	pool: Bytes!
 	salt: Bytes!
 	type: String!
 	factory: Bytes!
@@ -27,7 +27,7 @@ type Collection @entity {
 	name: String!
 	symbol: String!
 	implementation: Bytes!
-	admin: Bytes!
+	pool: Bytes!
 	salt: Bytes!
 	type: String!
 	factory: Bytes!

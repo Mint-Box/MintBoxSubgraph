@@ -10,7 +10,6 @@ import {
 	SetPayToken,
 	SetContractURI,
 	SetParam,
-	Withdrawal,
 	OwnershipTransferred
 } from './types/ERC721SingleCollectionUpgradeable/ERC721SingleCollectionUpgradeable'
 import {
@@ -43,17 +42,6 @@ export function handleMintToken(event: MintToken): void {
 		event.address,
 		event.params.tokenId,
 		BigInt.fromU32(0)
-	)
-}
-
-export function handleWithdrawal(event: Withdrawal): void {
-	saveWithdrawal(
-		event.address,
-		event.params.payToken,
-		event.params.to,
-		event.params.amount,
-		event.block.timestamp,
-		event.transaction.hash
 	)
 }
 

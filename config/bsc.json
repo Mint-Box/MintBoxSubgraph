@@ -1,0 +1,7 @@
+{
+	"network": "bsc",
+	"startBlock": 16260903,
+	"ERC721SingleCollectionFactoryAddress": "0xeeF35D19f60bb79807f27DD06d6A3fa2925FBeE2",
+	"ERC721MultipleCollectionFactoryAddress": "0xe0Fb944135B4c08B34516eC71b0752A6986f2924",
+	"ERC1155SingleCollectionFactoryAddress": "0x00F73B9CD30157859b1b947bd2Bc2987265781D9"
+}

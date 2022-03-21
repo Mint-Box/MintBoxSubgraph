@@ -1,5 +1,5 @@
 specVersion: 0.0.4
-description: MintBox for ethereum
+description: MintBox for {{network}}
 schema:
   file: ./schema.graphql
 dataSources:
@@ -20,7 +20,7 @@ dataSources:
         - name: ERC721SingleCollectionFactory
           file: ./abis/ERC721SingleCollectionFactory.json
       eventHandlers:
-        - event: Deployed(indexed address,address,string,string,string,address,address,address,bytes32,(address,uint256,uint64,uint64,string))
+        - event: Deployed(indexed address,address,string,string,string,address,address,bytes32,address,(address,uint256,uint64,uint64,string))
           handler: handleDeployed
       file: ./src/ERC721SingleCollectionFactory.ts
   - kind: ethereum
@@ -40,7 +40,7 @@ dataSources:
         - name: ERC721MultipleCollectionFactory
           file: ./abis/ERC721MultipleCollectionFactory.json
       eventHandlers:
-        - event: Deployed(indexed address,address,string,string,bytes32,address,address,bytes32,(address,uint256,uint64,uint64,string))
+        - event: Deployed(indexed address,address,string,string,bytes32,address,bytes32,address,(address,uint256,uint64,uint64,string))
           handler: handleDeployed
       file: ./src/ERC721MultipleCollectionFactory.ts
   - kind: ethereum
@@ -60,7 +60,7 @@ dataSources:
         - name: ERC1155SingleCollectionFactory
           file: ./abis/ERC1155SingleCollectionFactory.json
       eventHandlers:
-        - event: Deployed(indexed address,address,string,string,string,address,uint256,address,address,bytes32,(address,uint256,uint64,uint64,string))
+        - event: Deployed(indexed address,address,string,string,string,address,uint256,address,bytes32,address,(address,uint256,uint64,uint64,string))
           handler: handleDeployed
       file: ./src/ERC1155SingleCollectionFactory.ts
   - kind: ethereum
@@ -77,8 +77,6 @@ dataSources:
       entities:
         - ERC721SingleCollectionUpgradeable
       abis:
-        - name: CollectionProxy
-          file: ./abis/CollectionProxy.json
         - name: ERC721SingleCollectionUpgradeable
           file: ./abis/ERC721SingleCollectionUpgradeable.json
       eventHandlers:
@@ -104,8 +102,6 @@ dataSources:
           handler: handleSetPrice
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-        - event: Withdrawal(indexed address,indexed address,uint256)
-          handler: handleWithdrawal
   - kind: ethereum
     name: ERC721MultiCollectionUpgradeable
     network: {{network}}
@@ -147,8 +143,6 @@ dataSources:
           handler: handleSetPrice
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-        - event: Withdrawal(indexed address,indexed address,uint256)
-          handler: handleWithdrawal
   - kind: ethereum
     name: ERC1155SingleCollectionUpgradeable
     network: {{network}}
@@ -192,26 +186,3 @@ dataSources:
           handler: handleTransferBatch
         - event: TransferSingle(indexed address,indexed address,indexed address,uint256,uint256)
           handler: handleTransferSingle
-        - event: Withdrawal(indexed address,indexed address,uint256)
-          handler: handleWithdrawal
-  - kind: ethereum
-    name: CollectionProxy
-    network: {{network}}
-    source:
-      abi: CollectionProxy
-      startBlock: {{startBlock}}
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.6
-      language: wasm/assemblyscript
-      entities:
-        - Collection
-      abis:
-        - name: CollectionProxy
-          file: ./abis/CollectionProxy.json
-      eventHandlers:
-        - event: AdminChanged(address,address)
-          handler: handleAdminChanged
-        - event: Upgraded(indexed address)
-          handler: handleUpgraded
-      file: ./src/CollectionProxy.ts

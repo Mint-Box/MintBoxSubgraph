@@ -11,14 +11,12 @@ import {
 	SetPayToken,
 	SetContractURI,
 	SetParam,
-	Withdrawal,
 	OwnershipTransferred
 } from './types/ERC721MultiCollectionUpgradeable/ERC721MultiCollectionUpgradeable'
 import {
 	handleMultipleRoot,
 	handleMultipleClaimTokenInBox,
 	handleTokenMintedInBox,
-	saveWithdrawal,
 	saveCollectionOpen,
 	saveCollectionClose,
 	saveCollectionPayToken,
@@ -56,16 +54,6 @@ export function handleMintToken(event: MintToken): void {
 	)
 }
 
-export function handleWithdrawal(event: Withdrawal): void {
-	saveWithdrawal(
-		event.address,
-		event.params.payToken,
-		event.params.to,
-		event.params.amount,
-		event.block.timestamp,
-		event.transaction.hash
-	)
-}
 export function handleSetClose(event: SetClose): void {
 	saveCollectionClose(event.address, event.params.time)
 }

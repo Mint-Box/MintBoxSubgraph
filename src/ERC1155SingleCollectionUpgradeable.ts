@@ -11,7 +11,6 @@ import {
 	SetPayToken,
 	SetContractURI,
 	SetParam,
-	Withdrawal,
 	OwnershipTransferred,
 	ERC1155SingleCollectionUpgradeable
 } from './types/ERC1155SingleCollectionUpgradeable/ERC1155SingleCollectionUpgradeable'
@@ -19,7 +18,6 @@ import {
 	handleSingleTokenAddedInBox,
 	handleTokenMintedInBox,
 	saveERC1155Transfer,
-	saveWithdrawal,
 	saveCollectionOpen,
 	saveCollectionClose,
 	saveCollectionPayToken,
@@ -96,17 +94,6 @@ export function handleMintToken(event: MintToken): void {
 		event.address,
 		event.params.tokenId,
 		supply
-	)
-}
-
-export function handleWithdrawal(event: Withdrawal): void {
-	saveWithdrawal(
-		event.address,
-		event.params.payToken,
-		event.params.to,
-		event.params.amount,
-		event.block.timestamp,
-		event.transaction.hash
 	)
 }
 
